@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function App() {    
 const [inputText,setInputText]=useState("");
+const [AddItems,setAddItem]=useState([]);
 function handleChange(){
 setAddItem(inputText);
 }
