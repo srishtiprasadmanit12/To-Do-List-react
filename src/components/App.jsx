@@ -30,9 +30,9 @@ setInputText(newVal);
       </div>
       <div>    
         <ul>
-        {AddItems.map(todoitem=>{
-            return <li>{todoitem}</li>
-        })}
+        {AddItems.map(todoitem=>(
+              <ToDoItem text={todoitem}/>
+        ))}
         </ul>
       </div>
     </div>
