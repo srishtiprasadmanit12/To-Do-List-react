@@ -3,8 +3,18 @@ import React, { useState } from "react";
 function App() {    
 const [inputText,setInputText]=useState("");
 const [AddItems,setAddItem]=useState([]);
-function handleChange(){
-setAddItem(inputText);
+
+function handleClick(){
+    setAddItem((item)=>{
+        return [...item,inputText];
+    })
+    setInputText("");
+
+} 
+
+function handleChange(event){
+ const newVal=event.target.value;   
+setInputText(newVal);
 }
   return (
     <div className="container">
@@ -13,13 +23,15 @@ setAddItem(inputText);
       </div>
       <div className="form">
         <input onChange={handleChange} type="text" />
-        <button>
+        <button onClick={handleClick}>
           <span>Add</span>
         </button>
       </div>
       <div>    
         <ul>
-          <li>{inputText}</li>
+        {AddItems.map(todoitem=>{
+            return <li>{todoitem}</li>
+        })}
         </ul>
       </div>
     </div>
