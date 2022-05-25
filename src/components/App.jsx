@@ -10,13 +10,17 @@ function handleClick(){
         return [...item,inputText];
     })
     setInputText("");
-
 } 
+
+function deleteItems(){
+  console.log("I got clicked");
+}
 
 function handleChange(event){
  const newVal=event.target.value;   
 setInputText(newVal);
 }
+
   return (
     <div className="container">
       <div className="heading">
@@ -31,7 +35,10 @@ setInputText(newVal);
       <div>    
         <ul>
         {AddItems.map(todoitem=>(
-              <ToDoItem text={todoitem}/>
+              <ToDoItem 
+              text={todoitem}
+              OnChecked={deleteItems}
+              />
         ))}
         </ul>
       </div>
