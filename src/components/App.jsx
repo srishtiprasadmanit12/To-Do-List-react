@@ -12,8 +12,15 @@ function handleClick(){
     setInputText("");
 } 
 
-function deleteItems(){
-  console.log("I got clicked");
+function deleteItems(id){
+  // console.log("I got clicked");
+  setAddItem(prevItem=>{
+    return prevItem.filter(
+      (item,index)=>{
+        return index!==id;
+      }
+    )
+  })
 }
 
 function handleChange(event){
@@ -34,8 +41,10 @@ setInputText(newVal);
       </div>
       <div>    
         <ul>
-        {AddItems.map(todoitem=>(
-              <ToDoItem 
+        {AddItems.map((todoitem,index)=>(
+              <ToDoItem
+              key={index} 
+              id={index}
               text={todoitem}
               OnChecked={deleteItems}
               />
